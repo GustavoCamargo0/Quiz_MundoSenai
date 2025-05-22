@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="script.js"></script>
+    <style>
+
+        h1{        
+            font-size: 50px;
+            text-shadow: 20px 10px #00000023;
+        }
+
+        button{
+            background: aqua;
+            font-size: 20px;
+            padding: 10px 15px;
+            box-shadow: 10px 10px #00000042;
+        }
+
+        input{
+            box-shadow: 10px 10px #00000042;
+            border-radius: 100px;
+            padding: 15px 15px;
+        }
+
+        form{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            background-image: url("pexels-photo-3426870.jpeg");
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+            <h1>Login</h1>
+        </form>
+        
+        <form>
+            <input type="text" placeholder="Usuario" id="user" >
+        </form>
+        
+        <form>
+            <input type="number" placeholder="Senha" id="senha" >
+        </form>
+        
+        <form>
+            <button onclick="logar();"> boton </button>
+        </form>
+    </div>
+</body>
+</html>
