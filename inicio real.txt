@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de programaçao</title>
+    <style>
+        
+.login-container button{
+    width: 80%; 
+    padding: 12px;
+    padding-top: 15px; 
+    border: none; 
+    background-color: #5b65ff; 
+    color: white; 
+    font-size: 20px; 
+    font-weight: bold; 
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+}
+
+
+.login-container button:hover{
+    background: #27016d; 
+}
+
+
+    </style>
+</head>
+<body>
+    <img src="https://conteudo.imguol.com.br/c/noticias/3c/2019/04/02/inteligencia-artificial-algoritmo-tecnologia-codigo-de-programacao-1554210815064_v2_615x300.jpg" alt="programaça" width="100%"  height="500px">
+    <br>
+    <h1><ins>Quiz de progamaçao</ins></h1>
+
+    <div class="login-container">
+        <form >
+            <button type="submit">Jogar o Quiz?</button>
+        </form>
+
+    </div>
+</body>
+</html>
