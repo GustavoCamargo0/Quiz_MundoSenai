@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        
+        
+        button{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            justify-content: center;
+            border-radius: 7px;
+            height: 60px; 
+            width: 200px;
+            display: flex;
+            margin: 10px;
+        }
+        .btnReiniciar{
+            display: flex;
+            justify-content: center;
+        }
+        button:hover{
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        body{
+            font-size: 13px;
+            text-align: center;
+            display: flex;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            justify-content: center;
+            background-color: rgb(99, 99, 190);
+           
+        }
+        .caixa-quiz{
+            border: 2px solid black;
+            border-radius: 40px;
+            background-color: white;
+            box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var PerguntasRespondidas = Number()
+        var pontos = Number()
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const perguntas = document.querySelectorAll("tr");
+
+    perguntas.forEach(pergunta => {
+        const botoes = pergunta.querySelectorAll("button");
+
+        botoes.forEach(botao => {
+            botao.addEventListener("click", function () {
+                    PerguntasRespondidas++;
+                
+                    if (botao.disabled) {return};
+    
+                    if (botao.id == "certo") {
+                        botao.style.border = "2px solid green";
+                        pontos++;
+                    } else {
+                        botao.style.border = "2px #FF6666 solid";
+                    }
+                    
+                   botoes.forEach(btn => btn.disabled = true);
+                  if (PerguntasRespondidas == 10) {
+                    document.getElementById("valor").innerText = "Você acertou " + pontos + " de 10 Perguntas!";
+                    let botao_reiniciar = document.getElementById("botao-reiniciar")
+                    botao_reiniciar.innerHTML = `<button onclick="location.reload()">Reiniciar</button>`
+                }});
+            });
+        });
+    });
+    </script>
+
+    <div class="caixa-quiz">
+    <h1>1- Qual é o propósito da tag &lt;title&gt;?</h1>
+    <table class="tabela-questoes">
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> mostrar um botão</button></th>
+                <th><button type="submit" id="certo"> exibir o título da página na aba do navegador</button></th>
+                <th><button type="submit" id="errado"> adicionar um cabeçalho</button></th>
+                <th><button type="submit" id="errado"> criar um rodapé</button></th>
+            </tr></thead>
+            
+        
+    </table>
+
+    <h1>2- Qual das opções abaixo representa uma tag de imagem corretamente?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="certo"> &lt;img src="imagem.jpg"&gt;</button></th>
+                <th><button type="submit" id="errado"> &lt;img&gt;imagem.jpg&lt;/img&gt;</button></th>
+                <th><button type="submit" id="errado"> &lt;img&gt;"imagem.jpg"</button></th>
+                <th><button type="submit" id="errado"> &lt;img src="imagem.jpg"&gt;&lt;/img&gt;</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>3- Para que serve a barra / nas tags HTML?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> iniciar um novo parágrafo</button></th>
+                <th><button type="submit" id="certo"> indicar o fechamento de uma tag</button></th>
+                <th><button type="submit" id="errado"> separar atributos</button></th>
+                <th><button type="submit" id="errado"> incluir comentários</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>4- Qual das opções representa corretamente uma tag HTML de parágrafo?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> &lt;p&gt;</button></th>
+                <th><button type="submit" id="errado"> &lt;/p&gt;</button></th>
+                <th><button type="submit" id="certo"> &lt;p&gt;&lt;/p&gt;</button></th>
+                <th><button type="submit" id="errado"> Todas as opções</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>5- Como se escreve um comentário em HTML?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> //isto é um comentário//</button></th>
+                <th><button type="submit" id="errado"> /isto é um comentário/</button></th>
+                <th><button type="submit" id="certo"> &lt;!--isto é um comentário--&gt;</button></th>
+                <th><button type="submit" id="errado"> &lt;comment&gt;isto é um comentário&lt;/comment&gt;</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>6- Qual opção aplica margem de 10px apenas à esquerda de um elemento?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> margin: 10px;</button></th>
+                <th><button type="submit" id="certo"> margin-left: 10px;</button></th>
+                <th><button type="submit" id="errado"> left-margin: 10px;</button></th>
+                <th><button type="submit" id="errado"> padding-left: 10px;</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>7- O que o operador === faz em JavaScript?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> Compara apenas valores</button></th>
+                <th><button type="submit" id="certo"> Compara valores e tipos</button></th>
+                <th><button type="submit" id="errado"> Atribui valor</button></th>
+                <th><button type="submit" id="errado"> Concatena variáveis</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>8- Qual propriedade controla o tamanho do texto?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> font-weight</button></th>
+                <th><button type="submit" id="errado"> text-size</button></th>
+                <th><button type="submit" id="certo"> font-size</button></th>
+                <th><button type="submit" id="errado"> size-font</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>9- Por que a tag &lt;head&gt; aparece no início do HTML?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado"> Porque ela mostra o conteúdo principal da página</button></th>
+                <th><button type="submit" id="certo"> Porque nela ficam informações como título, links de CSS e scripts</button></th>
+                <th><button type="submit" id="errado"> Porque ela exibe o cabeçalho da página para o usuário</button></th>
+                <th><button type="submit" id="errado"> Porque ela serve para criar menus</button></th>
+            </tr></thead>
+        
+    </table>
+
+    <h1>10- O que as chaves {} indicam em JavaScript?</h1>
+    <table>
+        <tbody><tr>
+            </tr></tbody><thead>
+                <tr><th><button type="submit" id="errado">Declaração de variável</button></th>
+                <th><button type="submit" id="certo"> Bloco de código, como funções ou laços</button></th>
+                <th><button type="submit" id="errado"> Comentário de várias linhas</button></th>
+                <th><button type="submit" id="errado"> Separação de parâmetros</button></th>
+            </tr></thead>
+        
+    </table>
+    <h1 id="valor"></h1>
+    <div class="btnReiniciar" id="botao-reiniciar"></div>
+
+</div>
+
+
+</body>
+</html>
