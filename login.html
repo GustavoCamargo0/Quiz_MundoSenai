@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Times New Roman', Times, serif;
+        }
+        h1{ 
+            margin-bottom: 33px;
+            color: #0b553c; /* cor do "login"*/     
+            font-size: 50px;
+            text-shadow: 10px 0px #04352131;
+        }
+        button{
+            border-radius: 100px; /*deixar redondo*/
+            background: rgb(13, 107, 91);
+            font-size: 19px;
+            padding: 12px 15px;
+            box-shadow: 8px 8px #00000027;
+            margin-top: 25px;
+            border: none; /* tirar a borda*/
+            color: #0b553c; /* cor do texto*/
+            background-color: #00000013;
+            font-weight: bold; /*deixar em negrito*/
+            cursor: grab;
+            transition: background 0.3s;
+        }
+        .login-container button:hover{
+            background: #00000088;}
+
+        input{
+            box-shadow: 10px 10px #00000042;
+            border-radius: 100px;
+            padding: 15px 15px;
+            background-color: rgba(79, 136, 77, 0.37);
+        }
+        
+        form{
+            text-align: center;
+            margin-top: 10px;
+           
+            background: #fff5f5; /* Fundo branco */
+            padding: 100px 6px; /* Espaçamento interno */
+            border-radius: 50px; /* Bordas arredondadas */
+             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.438); /* Sombra ao redor */
+            width: 300px; /* Largura fixa */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            background-image: linear-gradient(-135deg, hwb(146 36% 32%) , hsl(157, 50%, 23%), rgba(128, 221, 175, 0.918));
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="login.php" method="POST" >
+        <div class="login-container"> 
+            <h1>Login</h1>
+            <div>
+                <input type="text" placeholder="Usuario" id="input">
+            </div>
+            <div>
+                <button  name="submit" type="submit" onclick="setValor();" >Entrar</button>
+           </div>
+        </div>
+    </form>
+    <script>
+        function setValor(){
+            var valor  = document.getElementById("input").value;
+            localStorage.setItem("nome", valor);
+        }
+
+
+        //var getvalue = localStorage.getItem("nome");
+        //alert(getvalue);
+    </script>
+</body>
+</html>
