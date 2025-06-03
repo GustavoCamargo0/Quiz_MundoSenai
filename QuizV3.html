@@ -25,7 +25,7 @@
 
     .btnReiniciar {
       display: flex;
-      justify-content: center;
+      margin-left: 230px;
       color: #c70000;
     }
 
@@ -59,7 +59,8 @@
     }
     .opcoes {
       text-align: center;
-      display: grid;grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       justify-content: center;
       margin-left: 145px;
     }
@@ -68,6 +69,9 @@
 
 <body>
   <script>
+    function voltar(){
+      window.open("inicio_Jogar_quiz.html")
+    }
     var PerguntasRespondidas = 0;
     var pontos = 0;
 
@@ -95,9 +99,11 @@
             botoes.forEach(btn => btn.disabled = true);
 
             if (PerguntasRespondidas == 10) {
-              document.getElementById("valor").innerText =  nom_user+ " acertou " + pontos + " de 10 Perguntas!";
+              document.getElementById("valor").innerText =  nom_user + " acertou " + pontos + " de 10 Perguntas!";
               let botao_reiniciar = document.getElementById("botao-reiniciar");
+              let botao_voltar = document.getElementById("botao-voltar");
               botao_reiniciar.innerHTML = `<button onclick="location.reload()">Reiniciar</button>`;
+              botao_voltar.innerHTML = `<button onclick="voltar()">Voltar</button>`
             }
           });
         });
@@ -189,8 +195,10 @@
     </div>
 
     <h1 id="valor"></h1>
-    <div class="btnReiniciar" id="botao-reiniciar"></div>
-
+    <div class="btnReiniciar">
+      <div  id="botao-reiniciar"></div>
+      <div  id="botao-voltar" ></div>
+    </div>
   </div>
 
 </body>
