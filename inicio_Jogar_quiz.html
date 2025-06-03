@@ -46,7 +46,7 @@ body{
 <body>
     <script>
         function new_aba(){
-            window.open("login.html")
+            window.location.href = "login.html" 
         }
     </script>
     <div class="login-container">
@@ -55,7 +55,7 @@ body{
             <br>
             <h1><ins>Quiz de progamaçao</ins></h1>
         
-            <button type="submit">Jogar o Quiz?</button>
+            <button type="submit" onclick="new_aba()">Jogar o Quiz?</button>
         </form>
 
     </div>
