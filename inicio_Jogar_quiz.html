@@ -1,42 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de programação</title>
     <style>
         
-.login-container button{
-    margin-bottom: 20px;
-    width: 100vh; 
-    height: 10vh; 
-    padding: 12px;
-    padding-top: 15px; 
-    border: none; 
-    background-color: #5b65ff; 
-    color: white; 
-    font-size: 20px; 
-    font-weight: bold; 
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-
-}
-h1{
-    color: white;
-}
-body{
-    background: linear-gradient(to bottom, #c70000, #400000, #100000);
-    text-align: center;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
+    .login-container button{
+        margin-bottom: 20px;
+        width: 100vh; 
+        height: 10vh; 
+        padding: 12px;
+        padding-top: 15px; 
+        border: none; 
+        font-size: 20px; 
+        font-weight: bold; 
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+        }
+    .login-container{
+        margin-top: 250px;
+        margin-left: 300px;
+        background-color: #400000;
+        border-radius: 13px;
+        display: flex;
+        justify-content:center;
+        width: 1000px;
+        height: 230px;
+    }
+    h1{
+        color: white;
+    }
+    body{
+        background: linear-gradient(to bottom, #c70000, #400000, #100000);
+        text-align: center;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
 
     .login-container button:hover{
-        transform: scale(1.05);
-        transition: (0.3s);
-        background: #27016d; 
+        transform: scale(1.1);
+        transition: (0.4s);
+    }
+    a{
+        text-decoration: none;
+        color: white;
     }
     </style>
 </head>
@@ -61,10 +71,9 @@ body{
     </script>
     <div class="login-container">
         <form >
-            <img src="inteligencia-artificial-algoritmo-tecnologia-codigo-de-programacao-1554210815064_v2_615x300.jpg" height="500px"  width="flex" >
             <br>
             <h1><ins>Quiz de progamaçao</ins></h1>
-            <button onclick="new_aba()" >começar</button>
+            <button onclick="new_aba()" >Começar</button>
             <br>
             <a href="login.html">Ja tem conta? troque de nome..!!</a>
         </form>
