@@ -69,6 +69,8 @@
 
 <body>
   <script>
+    var getvalue = localStorage.getItem("nome");
+    var getpoints= localStorage.getItem("pontos");
     document.addEventListener("DOMContentLoaded", () => {
       const quizContainer = document.querySelector(".caixa-quiz");
       const perguntas = Array.from(document.querySelectorAll(".pergunta"));
@@ -103,6 +105,7 @@
             if (botao.id == "certo") {
               botao.style.border = "2px solid green";
               pontos++;
+              localStorage.setItem("pontos", pontos);
             } else {
               botao.style.border = "2px #FF6666 solid";
             }
@@ -111,7 +114,6 @@
 
             if (PerguntasRespondidas == 10) {
               document.getElementById("valor").innerText =  nom_user + " acertou " + pontos + " de 10 Perguntas!";
-              localStorage.setItem("pontos", pontos);
               let botao_reiniciar = document.getElementById("botao-reiniciar");
               let botao_voltar = document.getElementById("botao-voltar");
               botao_reiniciar.innerHTML = `<button onclick="location.reload()">Reiniciar</button>`;
