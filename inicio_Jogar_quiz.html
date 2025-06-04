@@ -7,6 +7,7 @@
     <style>
         
 .login-container button{
+    margin-bottom: 20px;
     width: 100vh; 
     height: 10vh; 
     padding: 12px;
@@ -45,13 +46,14 @@ body{
     <script>
         function new_aba(){
             var getvalue = localStorage.getItem("nome");
+            var getpoints= localStorage.getItem("pontos");
             var bton_change = document.getElementById("change_name");
 
             if(getvalue == null){
                 window.open("login.html")
 
             }else if(getvalue != null){
-                alert("Usuario cadastrado: " + getvalue);
+                alert("Usuario cadastrado: " + getvalue + "\nUltima pontuaçao: " + getpoints);
                 window.open("QuizV3.html")
             }
             
