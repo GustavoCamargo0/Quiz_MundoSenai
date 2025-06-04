@@ -69,33 +69,42 @@
 
 <body>
   <script>
-    var getvalue = localStorage.getItem("nome");
-    var getpoints= localStorage.getItem("pontos");
-
     function voltar(){
       window.open("inicio_Jogar_quiz.html")
     }
-    var PerguntasRespondidas = 0;
-    var pontos = 0;
 
     document.addEventListener("DOMContentLoaded", function () {
       const perguntas = document.querySelectorAll(".opcoes");
+      
+      // variaveis pontos.
+      var PerguntasRespondidas = 0;
+      var pontos = 0;
 
+      // carregando valores do cache
+      var getvalue = localStorage.getItem("nome");
+      var getpoints= localStorage.getItem("pontos");
       var nom_user = localStorage.getItem("nome")
+      
       
       perguntas.forEach(pergunta => {
         const botoes = pergunta.querySelectorAll("button");
 
         botoes.forEach(botao => {
           botao.addEventListener("click", function () {
+
             if (botao.disabled) { return; } 
 
             PerguntasRespondidas++;
 
+            // veificar resposta 
             if (botao.id == "certo") {
+
               botao.style.border = "2px solid green";
               pontos++;
+
+              // salvar pontos
               localStorage.setItem("pontos", pontos);
+
             } else {
               botao.style.border = "2px #FF6666 solid";
             }
@@ -103,11 +112,15 @@
             botoes.forEach(btn => btn.disabled = true);
 
             if (PerguntasRespondidas == 10) {
+
               document.getElementById("valor").innerText =  nom_user + " acertou " + pontos + " de 10 Perguntas!";
+              
               let botao_reiniciar = document.getElementById("botao-reiniciar");
               let botao_voltar = document.getElementById("botao-voltar");
+              
+              // criar botões voltar/reiniciar;
               botao_reiniciar.innerHTML = `<button onclick="location.reload()">Reiniciar</button>`;
-              botao_voltar.innerHTML = `<button onclick="voltar()">Voltar</button>`
+              botao_voltar.innerHTML = `<button onclick="voltar()">Voltar</button>`;
             }
           });
         });
