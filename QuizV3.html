@@ -69,8 +69,20 @@
 
 <body>
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const quizContainer = document.querySelector(".caixa-quiz");
+      const perguntas = Array.from(document.querySelectorAll(".pergunta"));
+
+      perguntas.sort(() => Math.random() - 0.5);
+
+      perguntas.forEach(pergunta => {
+        quizContainer.appendChild(pergunta);
+      });
+    });
+
     function voltar(){
       window.open("inicio_Jogar_quiz.html")
+      window.focus();
     }
     var PerguntasRespondidas = 0;
     var pontos = 0;
@@ -100,6 +112,7 @@
 
             if (PerguntasRespondidas == 10) {
               document.getElementById("valor").innerText =  nom_user + " acertou " + pontos + " de 10 Perguntas!";
+              localStorage.setItem("pontos", pontos);
               let botao_reiniciar = document.getElementById("botao-reiniciar");
               let botao_voltar = document.getElementById("botao-voltar");
               botao_reiniciar.innerHTML = `<button onclick="location.reload()">Reiniciar</button>`;
@@ -113,94 +126,111 @@
 
   <div class="caixa-quiz">
     <h1>QUIZ</h1>
-    <br>
-    <h2>1- Qual é o propósito da tag <span class="palavra">&lt;title&gt;</span>?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">mostrar um botão</button></div>
-      <div class="opcao"><button type="button" id="certo">exibir o título da página na aba do navegador</button></div>
-      <div class="opcao"><button type="button" id="errado">adicionar um cabeçalho</button></div>
-      <div class="opcao"><button type="button" id="errado">criar um rodapé</button></div>
-    </div>
-
-    <h2>2- Qual das opções abaixo representa uma tag de <span class="palavra">imagem</span> corretamente?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="certo">&lt;img src="imagem.jpg"&gt;</button></div>
-      <div class="opcao"><button type="button" id="errado">&lt;img&gt;imagem.jpg&lt;/img&gt;</button></div>
-      <div class="opcao"><button type="button" id="errado">&lt;img&gt;"imagem.jpg"</button></div>
-      <div class="opcao"><button type="button" id="errado">&lt;img src="imagem.jpg"&gt;&lt;/img&gt;</button></div>
-    </div>
-
-    <h2>3- Para que serve a <span class="palavra">barra /</span> nas tags HTML?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">iniciar um novo parágrafo</button></div>
-      <div class="opcao"><button type="button" id="certo">indicar o fechamento de uma tag</button></div>
-      <div class="opcao"><button type="button" id="errado">separar atributos</button></div>
-      <div class="opcao"><button type="button" id="errado">incluir comentários</button></div>
-    </div>
-
-    <h2>4- Qual das opções representa corretamente uma tag HTML de <span class="palavra">parágrafo</span>?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">&lt;p&gt;</button></div>
-      <div class="opcao"><button type="button" id="errado">&lt;/p&gt;</button></div>
-      <div class="opcao"><button type="button" id="certo">&lt;p&gt;&lt;/p&gt;</button></div>
-      <div class="opcao"><button type="button" id="errado">Todas as opções</button></div>
-    </div>
-
-    <h2>5- Como se escreve um <span class="palavra">comentário</span> em HTML?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">//isto é um comentário//</button></div>
-      <div class="opcao"><button type="button" id="errado">/isto é um comentário/</button></div>
-      <div class="opcao"><button type="button" id="certo">&lt;!--isto é um comentário--&gt;</button></div>
-      <div class="opcao"><button type="button" id="errado">&lt;comment&gt;isto é um comentário&lt;/comment&gt;</button></div>
-    </div>
-
-    <h2>6- Qual opção aplica <span class="palavra">margem de 10px</span> apenas à <span class="palavra">esquerda</span> de um elemento?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">margin: 10px;</button></div>
-      <div class="opcao"><button type="button" id="certo">margin-left: 10px;</button></div>
-      <div class="opcao"><button type="button" id="errado">left-margin: 10px;</button></div>
-      <div class="opcao"><button type="button" id="errado">padding-left: 10px;</button></div>
-    </div>
-
-    <h2>7- O que o operador <span class="palavra">===</span> faz em JavaScript?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">Compara apenas valores</button></div>
-      <div class="opcao"><button type="button" id="certo">Compara valores e tipos</button></div>
-      <div class="opcao"><button type="button" id="errado">Atribui valor</button></div>
-      <div class="opcao"><button type="button" id="errado">Concatena variáveis</button></div>
-    </div>
-
-    <h2>8- Qual <span class="palavra">propriedade</span> controla o <span class="palavra">tamanho do texto</span>?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">font-weight</button></div>
-      <div class="opcao"><button type="button" id="errado">text-size</button></div>
-      <div class="opcao"><button type="button" id="certo">font-size</button></div>
-      <div class="opcao"><button type="button" id="errado">size-font</button></div>
-    </div>
-
-    <h2>9- Por que a tag <span class="palavra">&lt;head&gt;</span> aparece no início do HTML?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">Porque ela mostra o conteúdo principal da página</button></div>
-      <div class="opcao"><button type="button" id="certo">Porque nela ficam informações como título, links de CSS e scripts</button></div>
-      <div class="opcao"><button type="button" id="errado">Porque ela exibe o cabeçalho da página para o usuário</button></div>
-      <div class="opcao"><button type="button" id="errado">Porque ela serve para criar menus</button></div>
-    </div>
-
-    <h2>10- O que as <span class="palavra">chaves {}</span> indicam em JavaScript?</h2>
-    <div class="opcoes">
-      <div class="opcao"><button type="button" id="errado">Declaração de variável</button></div>
-      <div class="opcao"><button type="button" id="certo">Bloco de código, como funções ou laços</button></div>
-      <div class="opcao"><button type="button" id="errado">Comentário de várias linhas</button></div>
-      <div class="opcao"><button type="button" id="errado">Separação de parâmetros</button></div>
-    </div>
-
     <h1 id="valor"></h1>
     <div class="btnReiniciar">
       <div  id="botao-reiniciar"></div>
       <div  id="botao-voltar" ></div>
     </div>
+    <div class="pergunta">
+      <h2>Qual é o propósito da tag <span class="palavra">&lt;title&gt;</span>?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">mostrar um botão</button></div>
+        <div><button type="button" id="certo">exibir o título da página na aba do navegador</button></div>
+        <div><button type="button" id="errado">adicionar um cabeçalho</button></div>
+        <div><button type="button" id="errado">criar um rodapé</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2>Qual das opções abaixo representa uma tag de <span class="palavra">imagem</span> corretamente?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="certo">&lt;img src="imagem.jpg"&gt;</button></div>
+        <div><button type="button" id="errado">&lt;img&gt;imagem.jpg&lt;/img&gt;</button></div>
+        <div><button type="button" id="errado">&lt;img&gt;"imagem.jpg"</button></div>
+        <div><button type="button" id="errado">&lt;img src="imagem.jpg"&gt;&lt;/img&gt;</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Para que serve a <span class="palavra">barra /</span> nas tags HTML?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">iniciar um novo parágrafo</button></div>
+        <div><button type="button" id="certo">indicar o fechamento de uma tag</button></div>
+        <div><button type="button" id="errado">separar atributos</button></div>
+        <div><button type="button" id="errado">incluir comentários</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Qual das opções representa corretamente uma tag HTML de <span class="palavra">parágrafo</span>?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">&lt;p&gt;</button></div>
+        <div><button type="button" id="errado">&lt;/p&gt;</button></div>
+        <div><button type="button" id="certo">&lt;p&gt;&lt;/p&gt;</button></div>
+        <div><button type="button" id="errado">Todas as opções</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Como se escreve um <span class="palavra">comentário</span> em HTML?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">//isto é um comentário//</button></div>
+        <div><button type="button" id="errado">/isto é um comentário/</button></div>
+        <div><button type="button" id="certo">&lt;!--isto é um comentário--&gt;</button></div>
+        <div><button type="button" id="errado">&lt;comment&gt;isto é um comentário&lt;/comment&gt;</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Qual opção aplica <span class="palavra">margem de 10px</span> apenas à <span class="palavra">esquerda</span> de um elemento?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">margin: 10px;</button></div>
+        <div><button type="button" id="certo">margin-left: 10px;</button></div>
+        <div><button type="button" id="errado">left-margin: 10px;</button></div>
+        <div><button type="button" id="errado">padding-left: 10px;</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> O que o operador <span class="palavra">===</span> faz em JavaScript?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">Compara apenas valores</button></div>
+        <div><button type="button" id="certo">Compara valores e tipos</button></div>
+        <div><button type="button" id="errado">Atribui valor</button></div>
+        <div><button type="button" id="errado">Concatena variáveis</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Qual <span class="palavra">propriedade</span> controla o <span class="palavra">tamanho do texto</span>?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">font-weight</button></div>
+        <div><button type="button" id="errado">text-size</button></div>
+        <div><button type="button" id="certo">font-size</button></div>
+        <div><button type="button" id="errado">size-font</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> Por que a tag <span class="palavra">&lt;head&gt;</span> aparece no início do HTML?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">Porque ela mostra o conteúdo principal da página</button></div>
+        <div><button type="button" id="certo">Porque nela ficam informações como título, links de CSS e scripts</button></div>
+        <div><button type="button" id="errado">Porque ela exibe o cabeçalho da página para o usuário</button></div>
+        <div><button type="button" id="errado">Porque ela serve para criar menus</button></div>
+      </div>
+    </div>
+    
+    <div class="pergunta">
+      <h2> O que as <span class="palavra">chaves {}</span> indicam em JavaScript?</h2>
+      <div class="opcoes">
+        <div><button type="button" id="errado">Declaração de variável</button></div>
+        <div><button type="button" id="certo">Bloco de código, como funções ou laços</button></div>
+        <div><button type="button" id="errado">Comentário de várias linhas</button></div>
+        <div><button type="button" id="errado">Separação de parâmetros</button></div>
+      </div>
+    </div>
   </div>
-
 </body>
 
 </html>
