@@ -71,16 +71,6 @@
   <script>
     var getvalue = localStorage.getItem("nome");
     var getpoints= localStorage.getItem("pontos");
-    document.addEventListener("DOMContentLoaded", () => {
-      const quizContainer = document.querySelector(".caixa-quiz");
-      const perguntas = Array.from(document.querySelectorAll(".pergunta"));
-
-      perguntas.sort(() => Math.random() - 0.5);
-
-      perguntas.forEach(pergunta => {
-        quizContainer.appendChild(pergunta);
-      });
-    });
 
     function voltar(){
       window.open("inicio_Jogar_quiz.html")
@@ -127,11 +117,7 @@
 
   <div class="caixa-quiz">
     <h1>QUIZ</h1>
-    <h1 id="valor"></h1>
-    <div class="btnReiniciar">
-      <div  id="botao-reiniciar"></div>
-      <div  id="botao-voltar" ></div>
-    </div>
+    <br>
     <div class="pergunta">
       <h2>Qual é o propósito da tag <span class="palavra">&lt;title&gt;</span>?</h2>
       <div class="opcoes">
@@ -231,7 +217,11 @@
         <div><button type="button" id="errado">Separação de parâmetros</button></div>
       </div>
     </div>
+    <h1 id="valor"></h1>
+    <div class="btnReiniciar">
+      <div  id="botao-reiniciar"></div>
+      <div  id="botao-voltar" ></div>
+    </div>
   </div>
 </body>
-
 </html>
